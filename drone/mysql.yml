@@ -1,5 +1,7 @@
 kind: pipeline
 name: default
+
+services:
 - name: mysql_db
   image: mysql
   ports:

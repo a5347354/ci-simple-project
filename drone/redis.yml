@@ -1,0 +1,10 @@
+kind: pipeline
+name: default
+
+services:
+- name: redis
+  image: redis
+  ports:
+  - 6379
+  command:
+  - "--requirepass admin"
