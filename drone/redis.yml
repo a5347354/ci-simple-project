@@ -8,3 +8,14 @@ services:
   - 6379
   command:
   - "--requirepass admin"
+
+
+
+steps:
+- name: ping redis
+  image: redis
+  commands:
+  - sleep 5
+  - redis-cli -h redis -a admin ping #PONG
+  - redis-cli -h redis -a admin set FOO bar
+  - redis-cli -h redis -a admin get FOO
