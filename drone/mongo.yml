@@ -1,0 +1,19 @@
+kind: pipeline
+name: dafault
+
+services:
+- name: mongo
+  image: mongo:4
+  ports:
+  - 27017
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: admin
+    MONGO_INITDB_ROOT_PASSWORD: admin
+    MONGO_INITDB_DATABASE: meta
+
+steps:
+- name: ping mongo
+  image: mongo:4
+  commands:
+  - sleep 5
+  - mongo --host mongo:27017 -u admin -padmin --eval "db.version()"
