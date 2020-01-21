@@ -1,0 +1,17 @@
+kind: pipeline
+name: dafault
+
+services:
+- name: producer
+  image: golang:1.13-stretch
+  ports:
+  - 8080
+  commands:
+  - go run main.go
+
+steps:
+- name: ping producer
+  image: byrnedo/alpine-curl
+  commands:
+  - sleep 5
+  - curl -f -L http://producer:8080
