@@ -1,0 +1,12 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "repository": "https://github.com/a5347354/ci-simple-project.git",
+  "author": "luke.fan <a5347354@gmail.com>",
+  "scripts": {
+    "start": "DEBUG=cypress:server:project* cypress run --config defaultCommandTimeout=10000"
+  },
+  "devDependencies": {
+    "cypress": "^3.5.0"
+  }
+}

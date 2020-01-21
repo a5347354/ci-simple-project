@@ -1,0 +1,13 @@
+kind: pipeline
+name: default
+
+steps:
+- name: cypress
+  image: cypress/base:8
+  commands:
+  - yarn install
+  - yarn start
+  when:
+    branch:
+    - master
+    event: push
