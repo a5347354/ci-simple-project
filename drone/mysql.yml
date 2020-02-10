@@ -11,6 +11,9 @@ services:
     MYSQL_DATABASE: meta
     MYSQL_ROOT_PASSWORD: ln1234_root
     MYSQL_USER: luke
+  # Fix Chinese garbled
+  command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+  
 
 steps:
 - name: setup MySQL DB
