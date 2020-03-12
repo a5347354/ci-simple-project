@@ -1,0 +1,11 @@
+kind: pipeline
+name: dafault
+
+steps:
+- name: command get value of env from drone's secret 
+  image: mongo:4
+  environment:
+    HOST_NAME:
+      from_secret: ABC
+  commands:
+  - echo $HOST_NAME
