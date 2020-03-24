@@ -16,8 +16,14 @@ services:
   
 
 steps:
-- name: setup MySQL DB
+- name: Create Table
   image: mysql
   commands:
   - sleep 15
   - mysql -u root -pln1234_root  -h mysql_db --execute="CREATE TABLE meta.provider (id varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+- name: Use different image and Create Database
+  image: mysql:5.7.22
+  commands:
+  - sleep 10
+  - mysql -u root -proot123456  -h mysql --port=3306 --execute="CREATE DATABASE line_cms;"
